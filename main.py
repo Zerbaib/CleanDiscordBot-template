@@ -130,7 +130,7 @@ for files in utilsCogPath.values():
     try:
         bot.load_extension(files)
     except Exception as e:
-        print(f"\n🌪️  Error during '{files}' loading:\n{e}")
+        print(lang.get("ERROR_COG_LOADING").format(cogName=files, e=e))
 
 for element in os.listdir(cogsFolder):
     try:
@@ -142,9 +142,9 @@ for element in os.listdir(cogsFolder):
                     try:
                         bot.load_extension(f'cogs.plugins.{element}.{cog_name}')
                     except Exception as e:
-                        print(f"\n🌪️  Error during '{cog_name}' loading:\n{e}")
+                        print(lang.get("ERROR_COG_LOADING").format(cogName=cog_name, e=e))
     except Exception as e:
-        print(f"\n🌪️  Error during '{element}' loading:\n{e}")
+        print(lang.get("ERROR_ELEMENTS_LOADING").format(element, e))
 
 
 bot.run(load_enviroment_token())

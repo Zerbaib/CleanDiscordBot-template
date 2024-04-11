@@ -15,6 +15,8 @@
 
     "ERROR_INVALID_LANGUAGE": "Invalid language, default language is English",
     "ERROR_CONFIG_LOAD": "\n🌪️  Error during config loading:\n{e}",
+    "ERROR_COG_LOADING": "\n🌪️  Error during '{cogName}' loading:\n{e}",
+    "ERROR_ELEMENTS_LOADING": "\n🌪️  Error during '{element}' loading:\n{e}",
 
     "": ""
 }
