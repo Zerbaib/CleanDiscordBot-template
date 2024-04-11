@@ -131,11 +131,12 @@ async def on_ready():
     print(lang.get("HEADER_LN12").format(timeNow=datetime.datetime.now()))
     print('===============================================')
 
-for files in utilsCogPath.values():
-    try:
-        bot.load_extension(files)
-    except Exception as e:
-        print(lang.get("ERROR_COG_LOADING").format(cogName=files, e=e))
+if utilsLoad:
+    for files in utilsCogPath.values():
+        try:
+            bot.load_extension(files)
+        except Exception as e:
+            print(lang.get("ERROR_COG_LOADING").format(cogName=files, e=e))
 
 for element in os.listdir(cogsFolder):
     try:

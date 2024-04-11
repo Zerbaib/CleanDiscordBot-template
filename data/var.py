@@ -14,6 +14,7 @@ dataFilePath = {
 cogsFolder = "./cogs/"
 
 # Utils cogs
+utilsLoad = False
 utilsCogPath = {
     "logger": "utils.logger",
     "automod": "utils.automod",
