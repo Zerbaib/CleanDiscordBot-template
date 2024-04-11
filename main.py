@@ -46,26 +46,26 @@ if not os.path.exists(badWordFilePath):
 
 if not os.path.exists(configFilePath):
     with open(configFilePath, 'w') as config_file:
-        prefix = input("Enter the bot's prefix:\n")
-        log_id = int(input("Enter the log's channel ID:\n"))
-        poll_id = int(input("Enter the poll's channel ID:\n"))
-        join_id = int(input("Enter the join's channel ID:\n"))
-        leave_id = int(input("Enter the leave's channel ID:\n"))
-        voice_id = int(input("Enter the voice's channel ID\nUsed for create salon on join:\n"))
-        id_client = int(input("Enter your Discord ID:\n"))
-        mute_id = int(input("Enter role id of muted role:\n"))
-        rank1 = int(input("Enter role id of level 10 role:\n"))
-        rank2 = int(input("Enter role id of level 25 role:\n"))
-        rank3 = int(input("Enter role id of level 50 role:\n"))
+        prefix = input(lang.get("QUESTION_PREFIX"))
+        logID = int(input(lang.get("QUESTION_LOG_CHANNEL_ID")))
+        pollID = int(input(lang.get("QUESTION_POLL_CHANNEL_ID")))
+        joinID = int(input(lang.get("QUESTION_WELCOME_CHANNEL_ID")))
+        leaveID = int(input(lang.get("QUESTION_LEAVE_CHANNEL_ID")))
+        voiceID = int(input(lang.get("QUESTION_VOICE_CHANNEL_ID")))
+        ownerID = int(input(lang.get("QUESTION_OWNER_ID")))
+        muteID = int(input(lang.get("QUESTION_MUTE_ROLE_ID")))
+        rank1 = int(input(lang.get("QUESTION_XP_ROLE_10_ID")))
+        rank2 = int(input(lang.get("QUESTION_XP_ROLE_25_ID")))
+        rank3 = int(input(lang.get("QUESTION_XP_ROLE_50_ID")))
         config_data = {
             "PREFIX": prefix,
-            "LOG_ID": log_id,
-            "POLL_ID": poll_id,
-            "JOIN_ID": join_id,
-            "LEAVE_ID": leave_id,
-            "AUTO_VOICE_ID": voice_id,
-            "YOUR_ID": id_client,
-            "MUTE_ROLE_ID": mute_id,
+            "LOG_ID": logID,
+            "POLL_ID": pollID,
+            "JOIN_ID": joinID,
+            "LEAVE_ID": leaveID,
+            "AUTO_VOICE_ID": voiceID,
+            "YOUR_ID": ownerID,
+            "MUTE_ROLE_ID": muteID,
             "del_time": 3,
             "level_roles": {
                 "10": rank1,
@@ -79,7 +79,7 @@ try:
     with open(configFilePath, 'r') as config_file:
         config = json.load(config_file)
 except Exception as e:
-    print(f"🌪️  Error during config loading:\n\n{e}")
+    print(lang.get("ERROR_CONFIG_FILE").format(e))
     exit()
 
 prefix = config["PREFIX"]
