@@ -1,6 +1,7 @@
 import json
 import os
 import platform
+import datetime
 
 import aiohttp
 import disnake
@@ -112,18 +113,22 @@ async def on_ready():
     if botVersion != botRepoVersion:
         print()
         print('===============================================')
-        print('🛑 You are not using the latest version!')
-        print('🛑 Please update the bot.')
-        print('🛑 Use "git fetch && git pull" to update your bot.')
+        print(lang.get("HEADER_OUTDATED_LN1"))
+        print(lang.get("HEADER_OUTDATED_LN2"))
+        print(lang.get("HEADER_OUTDATED_LN3"))
     print('===============================================')
-    print(f"🔱 The bot is ready!")
-    print(f'🔱 Logged in as {botName} | {bot.user.id}')
-    print(f'🔱 Language: {botLang}')
-    print(f'🔱 Bot local version: {botVersion}')
-    print(f'🔱 Bot online version: {botRepoVersion}')
-    print(f"🔱 Disnake version: {disnake.__version__}")
-    print(f"🔱 Running on {platform.system()} {platform.release()} {os.name}")
-    print(f"🔱 Python version: {platform.python_version()}")
+    print(lang.get("HEADER_LN1"))
+    print(lang.get("HEADER_LN2").format(botName=botName, botId=bot.user.id))
+    print(lang.get("HEADER_LN3").format(amount=len(bot.guilds)))
+    print(lang.get("HEADER_LN4").format(language=botLang))
+    print(lang.get("HEADER_LN5").format(prefix=prefix))
+    print(lang.get("HEADER_LN6").format(owner=bot.get_user(config["YOUR_ID"])))
+    print(lang.get("HEADER_LN7").format(botVersion=botVersion))
+    print(lang.get("HEADER_LN8").format(botRepoVersion=botRepoVersion))
+    print(lang.get("HEADER_LN9").format(apiVersion=disnake.__version__))
+    print(lang.get("HEADER_LN10").format(platformSystem=platform.system(), platformVersion=platform.release(), osName=os.name))
+    print(lang.get("HEADER_LN11").format(pythonVersion=platform.python_version()))
+    print(lang.get("HEADER_LN12").format(timeNow=datetime.datetime.now()))
     print('===============================================')
 
 for files in utilsCogPath.values():
