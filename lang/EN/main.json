@@ -2,5 +2,7 @@
     "QUESTION_BOT_TOKEN": "Enter the bot's token:\n",
     "QUESTION_LANGUAGE": "Enter the language of the bot (en, es, fr, ...):\n",
 
+    "ERROR_INVALID_LANGUAGE": "Invalid language, default language is English",
+
     "": ""
 }

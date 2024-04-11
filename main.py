@@ -10,16 +10,21 @@ from utils.load_environement import load_enviroment_lang, load_enviroment_token
 from utils.load_lang import load_main_lang
 from data.var import *
 
-lang = load_enviroment_lang()
+lang = load_main_lang()
+
+for files in dataFilePath.values():
+    if not os.path.exists(files):
+        with open(files, 'w') as file:
+            json.dump({}, file)
 
 if not os.path.exists(envFilePath):
-    token = input(lang("QUESTION_BOT_TOKEN"))
-    lang_choice = input(lang("QUESTION_LANGUAGE"))
+    token = input(lang.get("QUESTION_BOT_TOKEN"))
+    lang_choice = input(lang.get("QUESTION_LANGUAGE"))
     lang_possible = ["en", "fr", "EN", "FR"]
     if lang_choice in lang_possible:
         lang_choice = lang_choice.upper()
     else:
-        print("Invalid language, default language is English")
+        print(lang.get("ERROR_INVALID_LANGUAGE"))
         lang_choice = "EN"
     with open(envFilePath, 'w') as env_file:
         envData = {
@@ -27,11 +32,6 @@ if not os.path.exists(envFilePath):
             "TOKEN": token
         }
         json.dump(envData, env_file, indent=4)
-
-for files in dataFilePath.values():
-    if not os.path.exists(files):
-        with open(files, 'w') as file:
-            json.dump({}, file)
 
 if not os.path.exists(badWordFilePath):
     badword_data = {
@@ -83,7 +83,7 @@ except Exception as e:
     exit()
 
 prefix = config["PREFIX"]
-ln = load_enviroment_lang()
+botLang = load_enviroment_lang()
 
 bot = commands.Bot(
     command_prefix=prefix,
@@ -95,21 +95,21 @@ bot.remove_command('help')
 @bot.event
 async def on_ready():
     if bot.user.discriminator == 0:
-        nbot = bot.user.name
+        botName = bot.user.name
     else:
-        nbot = bot.user.name + "#" + bot.user.discriminator
+        botName = bot.user.name + "#" + bot.user.discriminator
 
     async with aiohttp.ClientSession() as session:
         async with session.get(onlineVersion) as response:
             if response.status == 200:
-                bot_repo_version = await response.text()
+                botRepoVersion = await response.text()
             else:
-                bot_repo_version = "Unknown"
+                botRepoVersion = "Unknown"
 
     with open(localVersionFilePath, 'r') as version_file:
-        bot_version = version_file.read().strip()
+        botVersion = version_file.read().strip()
 
-    if bot_version != bot_repo_version:
+    if botVersion != botRepoVersion:
         print()
         print('===============================================')
         print('🛑 You are not using the latest version!')
@@ -117,10 +117,10 @@ async def on_ready():
         print('🛑 Use "git fetch && git pull" to update your bot.')
     print('===============================================')
     print(f"🔱 The bot is ready!")
-    print(f'🔱 Logged in as {nbot} | {bot.user.id}')
-    print(f'🔱 Language: {ln}')
-    print(f'🔱 Bot local version: {bot_version}')
-    print(f'🔱 Bot online version: {bot_repo_version}')
+    print(f'🔱 Logged in as {botName} | {bot.user.id}')
+    print(f'🔱 Language: {botLang}')
+    print(f'🔱 Bot local version: {botVersion}')
+    print(f'🔱 Bot online version: {botRepoVersion}')
     print(f"🔱 Disnake version: {disnake.__version__}")
     print(f"🔱 Running on {platform.system()} {platform.release()} {os.name}")
     print(f"🔱 Python version: {platform.python_version()}")
@@ -130,7 +130,7 @@ for files in utilsCogPath.values():
     try:
         bot.load_extension(files)
     except Exception as e:
-        print(f"🌪️  Error during '{files}' loading:\n\n{e}")
+        print(f"\n🌪️  Error during '{files}' loading:\n{e}")
 
 for element in os.listdir(cogsFolder):
     try:
@@ -142,9 +142,9 @@ for element in os.listdir(cogsFolder):
                     try:
                         bot.load_extension(f'cogs.plugins.{element}.{cog_name}')
                     except Exception as e:
-                        print(f"🌪️  Error during '{cog_name}' loading:\n\n{e}")
+                        print(f"\n🌪️  Error during '{cog_name}' loading:\n{e}")
     except Exception as e:
-        print(f"🌪️  Error during '{element}' loading:\n\n{e}")
+        print(f"\n🌪️  Error during '{element}' loading:\n{e}")
 
 
 bot.run(load_enviroment_token())
