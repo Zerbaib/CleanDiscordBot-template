@@ -1,0 +1,38 @@
+{
+    "QUESTION_BOT_TOKEN": "Ingresa el token del bot:\n",
+    "QUESTION_LANGUAGE": "Ingresa el idioma del bot (en, es, fr, ...):\n",
+    "QUESTION_PREFIX": "Ingresa el prefijo del bot:\n",
+    "QUESTION_OWNER_ID": "Ingresa el ID del propietario:\n",
+    "QUESTION_LOG_CHANNEL_ID": "Ingresa el ID del canal de registro:\n",
+    "QUESTION_POLL_CHANNEL_ID": "Ingresa el ID del canal de encuestas:\n",
+    "QUESTION_WELCOME_CHANNEL_ID": "Ingresa el ID del canal de bienvenida:\n",
+    "QUESTION_LEAVE_CHANNEL_ID": "Ingresa el ID del canal de despedida:\n",
+    "QUESTION_VOICE_CHANNEL_ID": "Ingresa el ID del canal de voz\nSe utiliza para crear un salón al unirse:\n",
+    "QUESTION_MUTED_ROLE_ID": "Ingresa el ID del rol de silenciado:\n",
+    "QUESTION_XP_ROLE_10_ID": "Ingresa el ID del rol para 10 XP:\n",
+    "QUESTION_XP_ROLE_25_ID": "Ingresa el ID del rol para 25 XP:\n",
+    "QUESTION_XP_ROLE_50_ID": "Ingresa el ID del rol para 50 XP:\n",
+
+    "HEADER_OUTDATED_LN1": "🛑 ¡No estás utilizando la última versión!",
+    "HEADER_OUTDATED_LN2": "🛑 Por favor, actualiza el bot.",
+    "HEADER_OUTDATED_LN3": "🛑 Usa \"git fetch && git pull\" para actualizar tu bot.",
+    "HEADER_LN1": "🔱 ¡El bot está listo!",
+    "HEADER_LN2": "🔱 Conectado como {botName} | {botId}",
+    "HEADER_LN3": "🔱 En {amount} servidores",
+    "HEADER_LN4": "🔱 Idioma: {language}",
+    "HEADER_LN5": "🔱 Prefijo: {prefix}",
+    "HEADER_LN6": "🔱 Propietario: {owner}",
+    "HEADER_LN7": "🔱 Versión local del bot: {botVersion}",
+    "HEADER_LN8": "🔱 Versión en línea del bot: {botRepoVersion}",
+    "HEADER_LN9": "🔱 Versión de Disnake: {apiVersion}",
+    "HEADER_LN10": "🔱 Ejecutándose en {platformSystem} {platformVersion} {osName}",
+    "HEADER_LN11": "🔱 Versión de Python: {pythonVersion}",
+    "HEADER_LN12": "🔱 Conectado a las {timeNow}",
+
+    "ERROR_INVALID_LANGUAGE": "Idioma inválido, el idioma predeterminado es inglés",
+    "ERROR_CONFIG_LOAD": "\n🌪️  Error durante la carga de la configuración:\n{e}",
+    "ERROR_COG_LOADING": "\n🌪️  Error durante la carga de '{cogName}':\n{e}",
+    "ERROR_ELEMENTS_LOADING": "\n🌪️  Error durante la carga de '{element}':\n{e}",
+
+    "": ""
+}
