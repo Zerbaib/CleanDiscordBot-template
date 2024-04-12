@@ -1,0 +1,8 @@
+{
+    "PING_DESCRIPTION": "Check the bot's latency",
+    "PING_TITLE": "🏓 Pong!",
+    "PING_TEXT": "The ping is around `{latency}ms` ⏳",
+    "PING_FOOTER": "Command executed by {author}",
+
+    "": ""
+}
