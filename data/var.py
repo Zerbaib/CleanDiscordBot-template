@@ -3,6 +3,10 @@ envFilePath = './.env'
 configFilePath = "./config.json"
 badWordFilePath = "./bad_words.json"
 
+# Parameters
+dataFileLoad = True
+utilsLoad = False
+
 # Data files
 dataFilePath = {
     "casino": "./data/casino.json",
@@ -14,7 +18,6 @@ dataFilePath = {
 cogsFolder = "./cogs/"
 
 # Utils cogs
-utilsLoad = False
 utilsCogPath = {
     "logger": "utils.logger",
     "automod": "utils.automod",

@@ -13,10 +13,11 @@ from data.var import *
 
 lang = load_main_lang()
 
-for files in dataFilePath.values():
-    if not os.path.exists(files):
-        with open(files, 'w') as file:
-            json.dump({}, file)
+if dataFileLoad:
+    for files in dataFilePath.values():
+        if not os.path.exists(files):
+            with open(files, 'w') as file:
+                json.dump({}, file)
 
 if not os.path.exists(envFilePath):
     token = input(lang.get("QUESTION_BOT_TOKEN"))
