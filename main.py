@@ -112,7 +112,6 @@ async def on_ready():
         botVersion = version_file.read().strip()
 
     if botVersion != botRepoVersion:
-        print()
         print('===============================================')
         print(lang.get("HEADER_OUTDATED_LN1"))
         print(lang.get("HEADER_OUTDATED_LN2"))
@@ -147,7 +146,7 @@ for element in os.listdir(cogsFolder):
                 if filename.endswith('.py'):
                     cog_name = filename[:-3]
                     try:
-                        bot.load_extension(f'cogs.plugins.{element}.{cog_name}')
+                        bot.load_extension(f'cogs.{element}.{cog_name}')
                     except Exception as e:
                         print(lang.get("ERROR_COG_LOADING").format(cogName=cog_name, e=e))
     except Exception as e:
