@@ -11,7 +11,7 @@ multidict==6.0.4
 Pillow==10.3.0
 requests==2.32.2
 termcolor==2.3.0
-urllib3==2.2.2
+urllib3==2.5.0
 yarl==1.9.2
 python-dotenv==1.0.0
 i18n==0.2
